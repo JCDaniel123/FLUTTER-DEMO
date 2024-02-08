@@ -3,16 +3,18 @@
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:jammy"
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"features": {
+		"ghcr.io/jarrodcolburn/features/flutter-sdk:0":{}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	"postCreateCommand": "sudo chown -R vscode /flutter/.pub-cache"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
