@@ -4,8 +4,8 @@ In order to run this containerized environment you will need to complete some st
 2. Make sure that you have Visual Studio Code installed on your machine. This container runs on VS code.
 3.YOU DO NOT NEED TO INSTALL THE SDK. That is taken care of in the container.
 4. Make sure when running this container with your Flutter app, that you run Docker and create your own container.
-5. To run your Flutter app using this container, use the command flutter run -d web-server into your terminal
-6. If you encounter issues when inputting this command  use the command "flutter pub upgrade" in the terminal. If this issue is encountered, you will need to input this command every time the container is rebuilt
+5. To run your Flutter app using this container, use the command `flutter run -d web-server` into your terminal
+6. If you encounter issues when inputting this command  use the command `flutter pub upgrade` in the terminal. If this issue is encountered, you will need to input this command every time the container is rebuilt
 
 
 NOTE:
