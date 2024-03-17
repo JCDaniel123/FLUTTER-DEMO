@@ -1,32 +1,27 @@
 name: main Pipeline
+
 on:
   push:
-  
+
 jobs:
- build:
-   runs-on: ubuntu-latest
-   steps:
-     - uses: actions/checkout@v4
-     - uses: subosito/flutter-action@v2
-       with:
-         channel: 'stable'
-         
-       -name: install app dependencies
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - name: install app dependencies
         working-directory: ./FlutterDemoApp
         run: flutter pub get
-         
-       - name: Run tests
-        working-directory: ./FlutterDemoApp 
+      - name: Run tests
+        working-directory: ./FlutterDemoApp
         run: flutter test
-
-       - name: Build flutter web
-       working-directory: ./FlutterDemoApp
-       run: flutter run -d web-server
-
-       -name: Deploy
-        uses: peacoiris/actions-gh-pages@v3
+      - name: Build flutter web
+        working-directory: ./FlutterDemoApp
+        run: flutter run -d web-server
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-           github_token: ${( secrets.GITHUB_TOKEN )}
-           publish_dir: ./FlutterDemoApp/build/web/
-
-       
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./FlutterDemoApp/build/web/
